@@ -1,6 +1,7 @@
 package com.tiscon.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Customer implements Serializable {
 
@@ -19,6 +20,8 @@ public class Customer implements Serializable {
     private String oldAddress;
 
     private String newAddress;
+
+    private String newDate;
 
     public int getCustomerId() {
         return customerId;
@@ -82,5 +85,13 @@ public class Customer implements Serializable {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public String getNewDate() {
+        return newDate;
+    }
+
+    public void setNewDate(String newDate) {
+        this.newDate = newDate;
     }
 }
