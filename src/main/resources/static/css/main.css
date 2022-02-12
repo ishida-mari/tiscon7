@@ -255,6 +255,11 @@ td {
     color: #ff0000;
 }
 
+.error-message-border {
+    border-color: #ff0000;
+}
+
+
 .index-block{
     margin: 0 auto;
     width: 800px;
