@@ -21,6 +21,13 @@
     <div class="col-sm-12">
       <div class="text-center">
         <div class="primary-text"><span th:text="${price}"></span>円</div>
+        <details>
+          <summary>見積もり内訳</summary>
+          <div class="cost-text">輸送距離料金<span th:text="${distance_price}"></span>円</div>
+          <div class="cost-text">トラック料金<span th:text="${Truck_price}"></span>円</div>
+          <div class="cost-text">オプション料金<span th:text="${Option_Price}"></span>円</div>
+          <div class="cost-text">季節による倍率×<span th:text="${SeasonCost}"></span></div>
+        </details>
         <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
       <div class="sub-title">お客様情報</div>

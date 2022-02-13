@@ -130,11 +130,20 @@ public class EstimateController {
         // 料金の計算を行う。
         UserOrderDto dto = new UserOrderDto();
         BeanUtils.copyProperties(userOrderForm, dto);
-        Integer price = estimateService.getPrice(dto);
+        Integer value[]=estimateService.getPrice(dto);
+        Integer price = value[0];
+        Integer distance_price = value[1];
+        Integer Truck_price = value[2];
+        Integer Option_Price = value[3];
+        Double SeasonCost = estimateService.getSeasonCost(dto);
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
         model.addAttribute("userOrderForm", userOrderForm);
         model.addAttribute("price", price);
+        model.addAttribute("distance_price", distance_price);
+        model.addAttribute("Truck_price", Truck_price);
+        model.addAttribute("Option_Price", Option_Price);
+        model.addAttribute("SeasonCost", SeasonCost);
         return "result";
     }
 

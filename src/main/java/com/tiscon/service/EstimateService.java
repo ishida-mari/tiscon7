@@ -69,7 +69,7 @@ public class EstimateService {
      * @param dto 見積もり依頼情報
      * @return 概算見積もり結果の料金
      */
-    public Integer getPrice(UserOrderDto dto) {
+    public Integer[] getPrice(UserOrderDto dto) {
         double distance = estimateDAO.getDistance(dto.getOldPrefectureId(), dto.getNewPrefectureId());
         // 小数点以下を切り捨てる
         int distanceInt = (int) Math.floor(distance);
@@ -85,14 +85,32 @@ public class EstimateService {
         // 箱に応じてトラックの種類が変わり、それに応じて料金が変わるためトラック料金を算出する。
         int pricePerTruck = estimateDAO.getPricePerTruck(boxes);
 
+        // 季節倍率を追加する。(3,4月=1.5,9月=1.2,それ以外1.0)
+        String date =dto.getNewDate();
+        int month=Integer.parseInt(date.substring(5,7));
+        double season=1.0;
+        if(month==3 || month==4)season = 1.5;
+        if(month==9)season = 1.2;
+
         // オプションサービスの料金を算出する。
         int priceForOptionalService = 0;
 
         if (dto.getWashingMachineInstallation()) {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
+        double total_double=(priceForDistance + pricePerTruck)*season + priceForOptionalService;
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        Integer value[]={(int)total_double,priceForDistance,pricePerTruck,priceForOptionalService};
+
+        return value;
+    }
+    public Double getSeasonCost(UserOrderDto dto) {
+        String date =dto.getNewDate();
+        int month=Integer.parseInt(date.substring(5,7));
+        double season=1.0;
+        if(month==3 || month==4)season = 1.5;
+        if(month==9)season = 1.2;
+        return season;
     }
 
     /**

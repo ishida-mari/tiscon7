@@ -47,6 +47,31 @@ body {
     font-size: 64px;
     font-family: "Roboto";
 }
+.cost-text {
+    margin: 32px;
+    color: #2EA9BC;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    font-family: "Roboto";
+}
+
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+    margin: 64px;
+    color: #ffffff;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 38px;
+    background-color:#2EA9BC;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
 
 .warning {
     color: #BC412E;
