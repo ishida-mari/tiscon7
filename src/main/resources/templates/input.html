@@ -54,13 +54,16 @@
        </div>
        <div class="sub-title">集荷元・お届け先</div>
        <div class="form-group">
+         <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+            <label for="zip1">集荷元郵便番号</label><br>
+                <span class="error-message"
+                     th:if="${#fields.hasErrors('zip1')}"
+                     th:errors="*{zip1}"> zip1 error
+                </span>
+            <input type="text" id=zip1 name="zip1" th:field="*{zip1}" class="form-control2" th:classappend="${#fields.hasErrors('zip1')} ? 'error-message-border'" onKeyUp="AjaxZip3.zip2addr('zip1', '', 'oldPrefectureId', 'oldAddress');" /> <br>
+       </div>
+       <div class="form-group">
          <label for="oldPrefectureId">集荷元住所（都道府県）</label>
-           <!--
-           <span class="error-message"
-                 th:if="${#fields.hasErrors('oldPrefectureId')}"
-                 th:errors="*{oldPrefectureId}"> oldPrefectureId error
-           </span>
-           -->
          <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
            <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{oldPrefectureId}">[[${prefecture.prefectureName}]]</option>
          </select>
@@ -73,6 +76,14 @@
            </span>
          <input type="text" id="oldAddress" name="oldAddress"
                 class="form-control" th:classappend="${#fields.hasErrors('oldAddress')} ? 'error-message-border'" value="新宿区西新宿1-1-1"/>
+       </div>
+       <div class="form-group">
+            <label for="zip2">お届け先郵便番号</label><br>
+             <span class="error-message"
+                   th:if="${#fields.hasErrors('zip2')}"
+                   th:errors="*{zip2}"> zip2 error
+             </span>
+            <input type="text" id=zip2 name="zip2" th:field="*{zip2}" class="form-control2" th:classappend="${#fields.hasErrors('zip2')} ? 'error-message-border'" onKeyUp="AjaxZip3.zip2addr('zip2', '', 'newPrefectureId', 'newAddress');" /> <br>
        </div>
        <div class="form-group">
          <label for="newPrefectureId">お届け先住所（都道府県）</label>
