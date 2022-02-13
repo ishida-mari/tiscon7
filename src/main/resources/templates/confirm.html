@@ -60,6 +60,13 @@
         <col span="1" style="background-color: #FFFFFF;">
         <col span="2" style="background-color: #FFFFFF;">
         <tbody>
+
+        <tr>
+          <th>集荷元郵便番号</th>
+          <td><span th:text="*{zip1}"></span></td>
+          <input type="hidden" name="zip1" id="zip1" th:value="*{zip1}"/>
+        </tr>
+
         <tr>
           <th style="width: 40%">集荷元住所（都道府県）</th>
           <td>
@@ -72,6 +79,13 @@
           <td><span th:text="*{oldAddress}"></span></td>
           <input type="hidden" name="oldAddress" id="oldAddress" th:value="*{oldAddress}"/>
         </tr>
+
+        <tr>
+          <th>お届け先郵便番号</th>
+          <td><span th:text="*{zip2}"></span></td>
+          <input type="hidden" name="zip2" id="zip2" th:value="*{zip2}"/>
+        </tr>
+
         <tr>
           <th>お届け先住所（都道府県）</th>
           <td>
