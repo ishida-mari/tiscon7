@@ -39,7 +39,7 @@ public class UserOrderForm {
     private String newAddress;
 
 
-    @NotNull
+    @NotBlank
     private String newDate;
 
     @Numeric
