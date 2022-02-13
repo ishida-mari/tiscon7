@@ -56,6 +56,15 @@ body {
     font-family: "Roboto";
 }
 
+.cost-text2 {
+    margin: 32px;
+    color: #cc1212;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: "Roboto";
+}
+
 details {
     border: 1px solid #aaa;
     border-radius: 4px;

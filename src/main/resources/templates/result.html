@@ -24,9 +24,11 @@
         <details>
           <summary>見積もり内訳</summary>
           <div class="cost-text">輸送距離料金<span th:text="${distance_price}"></span>円</div>
-          <div class="cost-text">トラック料金<span th:text="${Truck_price}"></span>円</div>
+          <div class="cost-text">トラック輸送費<span th:text="${Truck_price}"></span>円</div>
           <div class="cost-text">オプション料金<span th:text="${Option_Price}"></span>円</div>
-          <div class="cost-text">季節による倍率×<span th:text="${SeasonCost}"></span></div>
+          <ul th:if="${SeasonCost>1.0}">
+          <div class="cost-text2">ご希望日は繁忙期により輸送距離料金とトラック輸送費が表示価格の<span th:text="${SeasonCost}"></span>倍となります.</div>
+          </ul>
         </details>
         <button type="submit" name="complete" class="btn btn-primary">詳細見積もり依頼へ</button>
       </div>
