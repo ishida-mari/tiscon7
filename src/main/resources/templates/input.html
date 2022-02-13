@@ -34,7 +34,7 @@
                   th:if="${#fields.hasErrors('customerName')}"
                   th:errors="*{customerName}"> customerName error
             </span>
-          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" placeholder="山田太郎"
+          <input type="text" id="customerName" name="customerName" th:field="*{customerName}" placeholder="例）山田太郎"
                  class="form-control" th:classappend="${#fields.hasErrors('customerName')} ? 'error-message-border'" value="山田太郎"/>
         </div>
         <div class="form-group">
@@ -44,7 +44,7 @@
                 th:errors="*{tel}"> tel error
           </span>
             <p><font size="-1">（ハイフンなし・半角入力）</font></p>
-         <input type="tel" id="tel" name="tel" th:field="*{tel}"  placeholder="09012345678"
+         <input type="tel" id="tel" name="tel" th:field="*{tel}"  placeholder="例）09012345678"
                 class="form-control" th:classappend="${#fields.hasErrors('tel')} ? 'error-message-border'" value="03-1234-5678"/>
        </div>
        <div class="form-group">
@@ -53,7 +53,7 @@
                  th:if="${#fields.hasErrors('email')}"
                  th:errors="*{email}"> email error
            </span>
-         <input type="email" id="email" name="email" th:field="*{email}" placeholder="info@example.com"
+         <input type="email" id="email" name="email" th:field="*{email}" placeholder="例）info@example.com"
                 class="form-control" th:classappend="${#fields.hasErrors('email')} ? 'error-message-border'" value="test@test.com"/>
        </div>
        <div class="sub-title">集荷元・お届け先</div>
@@ -64,6 +64,7 @@
                      th:if="${#fields.hasErrors('zip1')}"
                      th:errors="*{zip1}"> zip1 error
                 </span>
+           　<p><font size="-1">（ハイフンなし・半角入力）</font></p>
             <input type="text" id=zip1 name="zip1" th:field="*{zip1}" class="form-control2" th:classappend="${#fields.hasErrors('zip1')} ? 'error-message-border'" onKeyUp="AjaxZip3.zip2addr('zip1', '', 'oldPrefectureId', 'oldAddress');" /> <br>
        </div>
        <div class="form-group">
@@ -78,7 +79,7 @@
                  th:if="${#fields.hasErrors('oldAddress')}"
                  th:errors="*{oldAddress}"> oldAddress error
            </span>
-         <input type="text" id="oldAddress" name="oldAddress"  placeholder="渋谷区緑町1-2-3　タワーマンション103号室"
+         <input type="text" id="oldAddress" name="oldAddress"  placeholder="例）渋谷区緑町1-2-3　タワーマンション103号室"
                 class="form-control" th:classappend="${#fields.hasErrors('oldAddress')} ? 'error-message-border'"/>
        </div>
        <div class="form-group">
@@ -87,6 +88,7 @@
                    th:if="${#fields.hasErrors('zip2')}"
                    th:errors="*{zip2}"> zip2 error
              </span>
+           　<p><font size="-1">（ハイフンなし・半角入力）</font></p>
             <input type="text" id=zip2 name="zip2" th:field="*{zip2}" class="form-control2" th:classappend="${#fields.hasErrors('zip2')} ? 'error-message-border'" onKeyUp="AjaxZip3.zip2addr('zip2', '', 'newPrefectureId', 'newAddress');" /> <br>
        </div>
        <div class="form-group">
@@ -101,7 +103,7 @@
                  th:if="${#fields.hasErrors('newAddress')}"
                  th:errors="*{newAddress}"> newAddress error
            </span>
-         <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" placeholder="渋谷区緑町1-2-3　タワーマンション103号室"
+         <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" placeholder="例）渋谷区緑町1-2-3　タワーマンション103号室"
                 class="form-control" th:classappend="${#fields.hasErrors('newAddress')} ? 'error-message-border'"
                 value="札幌市南区1"/>
        </div>
