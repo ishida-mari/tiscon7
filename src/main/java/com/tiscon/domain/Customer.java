@@ -1,5 +1,6 @@
 package com.tiscon.domain;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,6 +23,10 @@ public class Customer implements Serializable {
     private String newAddress;
 
     private String newDate;
+
+    private String zip1;
+
+    private String zip2;
 
     public int getCustomerId() {
         return customerId;
@@ -85,6 +90,22 @@ public class Customer implements Serializable {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public String getZip1() {
+        return zip1;
+    }
+
+    public void setZip1(String zip1) {
+        this.zip1 = zip1;
+    }
+
+    public String getZip2() {
+        return zip2;
+    }
+
+    public void setZip2(String zip2) {
+        this.zip2 = zip2;
     }
 
     public String getNewDate() {
